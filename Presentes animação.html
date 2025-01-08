@@ -9,6 +9,7 @@
             margin: 0;
             background-color: #000;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
@@ -28,7 +29,7 @@
         .carousel-track {
             display: flex;
             position: relative;
-            animation: none; /* Movimentação feita no JavaScript */
+            animation: none;
         }
 
         .carousel-item {
@@ -37,8 +38,8 @@
             align-items: center;
             flex-shrink: 0;
             width: 150px;
-            margin: 0 30px; /* Desloca as imagens mais para a direita */
-            color: white; /* Texto branco */
+            margin: 0 30px;
+            color: white;
         }
 
         .carousel-item img {
@@ -49,13 +50,13 @@
         .gift-name {
             margin: 5px 0;
             text-align: center;
-            color: white; /* Texto branco */
+            color: white;
         }
 
         .gift-price {
             margin: 5px 0;
             text-align: center;
-            color: white; /* Texto branco */
+            color: white;
             display: flex;
             align-items: center;
         }
@@ -65,6 +66,82 @@
             height: 12px;
             margin-left: 5px;
             display: inline-block;
+        }
+
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            max-width: 600px;
+            background-color: #111;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+        }
+
+        .popup-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .popup-header h2 {
+            margin: 0;
+            color: white;
+        }
+
+        .popup-header button {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .popup-content {
+            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .popup-content img {
+            width: 100px;
+            height: auto;
+            margin: 10px;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+
+        .popup-content img.selected {
+            border: 2px solid #fff;
+        }
+
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .button-container button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #222;
+            color: white;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .button-container button:hover {
+            background-color: #444;
+        }
+
+        .button-container button:focus {
+            outline: none;
+            border-color: #555;
         }
     </style>
 </head>
@@ -129,21 +206,64 @@
         </div>
     </div>
 
+    <div class="button-container">
+        <button onclick="openPopup()">Selecionar Imagens</button>
+    </div>
+
+    <div class="popup" id="popup">
+        <div class="popup-header">
+            <h2>Selecione as Imagens</h2>
+            <button onclick="closePopup()">✖</button>
+        </div>
+        <div class="popup-content">
+            <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/3f02fa9594bd1495ff4e8aa5ae265eef~tplv-obj.webp" alt="GG" onclick="toggleSelection(this)">
+            <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/b805f23afc85a3d4be1a49fac83144b5.png~tplv-obj.webp" alt="2025" onclick="toggleSelection(this)">
+            <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/968820bc85e274713c795a6aef3f7c67~tplv-obj.webp" alt="Ice Cream Cone" onclick="toggleSelection(this)">
+            <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/9d64a7ace98699062ec1410352d34ead.png~tplv-obj.webp" alt="GG 2025" onclick="toggleSelection(this)">
+            <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/802a21ae29f9fae5abe3693de9f874bd~tplv-obj.webp" alt="TikTok" onclick="toggleSelection(this)">
+            <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/eba3a9bb85c33e017f3648eaf88d7189~tplv-obj.webp" alt="Rose" onclick="toggleSelection(this)">
+            <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/d56945782445b0b8c8658ed44f894c7b~tplv-obj.webp" alt="Heart Me" onclick="toggleSelection(this)">
+            <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/570a663e27bdc460e05556fd1596771a~tplv-obj.webp" alt="Thumbs Up" onclick="toggleSelection(this)">
+            <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/dd300fd35a757d751301fba862a258f1~tplv-obj.webp" alt="Heart" onclick="toggleSelection(this)">
+            <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/f681afb4be36d8a321eac741d387f1e2~tplv-obj.webp" alt="Cake Slice" onclick="toggleSelection(this)">
+            <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/8e1a5d66370c5586545e358e37c10d25~tplv-obj.webp" alt="Glow Stick" onclick="toggleSelection(this)">
+            <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/ab0a7b44bfc140923bb74164f6f880ab~tplv-obj.webp" alt="Love you" onclick="toggleSelection(this)">
+            <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/1fa0a4ed666304c78a46de200b85c84b.png~tplv-obj.webp" alt="Candy Cane" onclick="toggleSelection(this)">
+            <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/b199d028d5beb081fe16edcf77db0830.png~tplv-obj.webp" alt="Flame heart" onclick="toggleSelection(this)">
+            <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/c9734b74f0e4e79bdfa2ef07c393d8ee.png~tplv-obj.webp" alt="Pumpkin" onclick="toggleSelection(this)">
+            <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/05ea964bf24ff849df2608e9116e0c87.png~tplv-obj.webp" alt="Squirrel" onclick="toggleSelection(this)">
+            <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/6a934c90e5533a4145bed7eae66d71bd.png~tplv-obj.webp" alt="Team Cheers" onclick="toggleSelection(this)">
+            <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/54cb1eeca369e5bea1b97707ca05d189.png~tplv-obj.webp" alt="Team Bracelet" onclick="toggleSelection(this)">
+            <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/a4c4dc437fd3a6632aba149769491f49.png~tplv-obj.webp" alt="Finger Heart" onclick="toggleSelection(this)">
+            <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/676d2d4c31a8979f1fd06cdf5ecd922f~tplv-obj.webp" alt="Popcorn" onclick="toggleSelection(this)">
+            <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/97e0529ab9e5cbb60d95fc9ff1133ea6~tplv-obj.webp" alt="Cheer You Up" onclick="toggleSelection(this)">
+            <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/fb8da877eabca4ae295483f7cdfe7d31.png~tplv-obj.webp" alt="Team Power" onclick="toggleSelection(this)">
+            <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/e033c3f28632e233bebac1668ff66a2f.png~tplv-obj.webp" alt="Friendship Necklace" onclick="toggleSelection(this)">
+            <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/eb77ead5c3abb6da6034d3cf6cfeb438~tplv-obj.webp" alt="Rosa" onclick="toggleSelection(this)">
+            <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/365d88a08eaf60f3703038dbeeb5063c.png~tplv-obj.webp" alt="New Year Keyboard" onclick="toggleSelection(this)">
+            <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/20b8f61246c7b6032777bb81bf4ee055~tplv-obj.webp" alt="Perfume" onclick="toggleSelection(this)">
+            <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/4e7ad6bdf0a1d860c538f38026d4e812~tplv-obj.webp" alt="Doughnut" onclick="toggleSelection(this)">
+            <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/0f158a08f7886189cdabf496e8a07c21~tplv-obj.webp" alt="Paper Crane" onclick="toggleSelection(this)">
+       </div>
+        <div class="button-container">
+            <button onclick="addSelectedGifts()">Adicionar Presentes</button>
+        </div>
+    </div>
+
     <script>
         const track = document.getElementById('carouselTrack');
+        let items = Array.from(track.children);
 
         function createInfiniteLoop() {
-            const items = Array.from(track.children);
-            const totalWidth = items.reduce((sum, item) => sum + item.offsetWidth + 60, 0); // Soma largura + margem
+            const totalWidth = items.reduce((sum, item) => sum + item.offsetWidth + 60, 0);
             track.style.width = `${totalWidth}px`;
 
             let position = 0;
-            const speed = 3; // Velocidade do carrossel
+            const speed = 3;
 
             function animate() {
                 position -= speed;
                 if (Math.abs(position) >= items[0].offsetWidth + 60) {
-                    // Reposiciona o primeiro item no final
                     const firstItem = items.shift();
                     position += firstItem.offsetWidth + 60;
                     track.appendChild(firstItem);
@@ -154,6 +274,35 @@
             }
 
             animate();
+        }
+
+        function openPopup() {
+            document.getElementById('popup').style.display = 'block';
+        }
+
+        function closePopup() {
+            document.getElementById('popup').style.display = 'none';
+        }
+
+        function toggleSelection(img) {
+            img.classList.toggle('selected');
+        }
+
+        function addSelectedGifts() {
+            const selectedImages = document.querySelectorAll('.popup-content img.selected');
+            selectedImages.forEach(img => {
+                const newGift = document.createElement('div');
+                newGift.className = 'carousel-item';
+                newGift.innerHTML = `
+                    <img src="${img.src}" alt="${img.alt}">
+                    <p class="gift-name">${img.alt}</p>
+                    <p class="gift-price">1 <img src="https://app.streamtoearn.io/assets/images/coin.png" alt="Moeda"></p>
+                `;
+                track.appendChild(newGift);
+                items.push(newGift);
+                img.classList.remove('selected');
+            });
+            closePopup();
         }
 
         window.onload = createInfiniteLoop;
