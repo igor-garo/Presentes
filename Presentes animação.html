@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loop Infinito Sem Duplicação</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .carousel {
+            display: flex;
+            overflow: hidden;
+            width: 100%;
+            max-width: 800px;
+            height: 150px;
+            align-items: center;
+            position: relative;
+            background-color: #111;
+        }
+
+        .carousel-track {
+            display: flex;
+            position: relative;
+            animation: none; /* Movimentação feita no JavaScript */
+        }
+
+        .carousel-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex-shrink: 0;
+            width: 150px;
+            margin: 0 30px; /* Desloca as imagens mais para a direita */
+            color: white; /* Texto branco */
+        }
+
+        .carousel-item img {
+            width: 100px;
+            height: auto;
+        }
+
+        .gift-name {
+            margin: 5px 0;
+            text-align: center;
+            color: white; /* Texto branco */
+        }
+
+        .gift-price {
+            margin: 5px 0;
+            text-align: center;
+            color: white; /* Texto branco */
+            display: flex;
+            align-items: center;
+        }
+
+        .gift-price img {
+            width: 12px;
+            height: 12px;
+            margin-left: 5px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div class="carousel">
+        <div class="carousel-track" id="carouselTrack">
+            <div class="carousel-item">
+                <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/9d64a7ace98699062ec1410352d34ead.png~tplv-obj.webp" alt="GG 2025">
+                <p class="gift-name">GG 2025</p>
+                <p class="gift-price">1 <img src="https://app.streamtoearn.io/assets/images/coin.png" alt="Moeda"></p>
+            </div>
+            <div class="carousel-item">
+                <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/802a21ae29f9fae5abe3693de9f874bd~tplv-obj.webp" alt="TikTok">
+                <p class="gift-name">TikTok</p>
+                <p class="gift-price">1 <img src="https://app.streamtoearn.io/assets/images/coin.png" alt="Moeda"></p>
+            </div>
+            <div class="carousel-item">
+                <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/eba3a9bb85c33e017f3648eaf88d7189~tplv-obj.webp" alt="Rosa">
+                <p class="gift-name">Rosa</p>
+                <p class="gift-price">1 <img src="https://app.streamtoearn.io/assets/images/coin.png" alt="Moeda"></p>
+            </div>
+            <div class="carousel-item">
+                <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/d56945782445b0b8c8658ed44f894c7b~tplv-obj.webp" alt="Coração Eu">
+                <p class="gift-name">Coração Eu</p>
+                <p class="gift-price">1 <img src="https://app.streamtoearn.io/assets/images/coin.png" alt="Moeda"></p>
+            </div>
+            <div class="carousel-item">
+                <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/570a663e27bdc460e05556fd1596771a~tplv-obj.webp" alt="Afirmativo">
+                <p class="gift-name">Afirmativo</p>
+                <p class="gift-price">1 <img src="https://app.streamtoearn.io/assets/images/coin.png" alt="Moeda"></p>
+            </div>
+            <div class="carousel-item">
+                <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/dd300fd35a757d751301fba862a258f1~tplv-obj.webp" alt="Coração">
+                <p class="gift-name">Coração</p>
+                <p class="gift-price">1 <img src="https://app.streamtoearn.io/assets/images/coin.png" alt="Moeda"></p>
+            </div>
+            <div class="carousel-item">
+                <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/f681afb4be36d8a321eac741d387f1e2~tplv-obj.webp" alt="Fatia de bolo">
+                <p class="gift-name">Fatia de bolo</p>
+                <p class="gift-price">1 <img src="https://app.streamtoearn.io/assets/images/coin.png" alt="Moeda"></p>
+            </div>
+            <div class="carousel-item">
+                <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/8e1a5d66370c5586545e358e37c10d25~tplv-obj.webp" alt="Bastão luminoso">
+                <p class="gift-name">Bastão luminoso</p>
+                <p class="gift-price">1 <img src="https://app.streamtoearn.io/assets/images/coin.png" alt="Moeda"></p>
+            </div>
+            <div class="carousel-item">
+                <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/ab0a7b44bfc140923bb74164f6f880ab~tplv-obj.webp" alt="Amo você">
+                <p class="gift-name">Amo você</p>
+                <p class="gift-price">1 <img src="https://app.streamtoearn.io/assets/images/coin.png" alt="Moeda"></p>
+            </div>
+            <div class="carousel-item">
+                <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/1fa0a4ed666304c78a46de200b85c84b.png~tplv-obj.webp" alt="Bengala Doce">
+                <p class="gift-name">Bengala Doce</p>
+                <p class="gift-price">1 <img src="https://app.streamtoearn.io/assets/images/coin.png" alt="Moeda"></p>
+            </div>
+            <div class="carousel-item">
+                <img src="https://p16-webcast.tiktokcdn.com/img/maliva/webcast-va/resource/b199d028d5beb081fe16edcf77db0830.png~tplv-obj.webp" alt="Coração de fogo">
+                <p class="gift-name">Coração de fogo</p>
+                <p class="gift-price">1 <img src="https://app.streamtoearn.io/assets/images/coin.png" alt="Moeda"></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const track = document.getElementById('carouselTrack');
+
+        function createInfiniteLoop() {
+            const items = Array.from(track.children);
+            const totalWidth = items.reduce((sum, item) => sum + item.offsetWidth + 60, 0); // Soma largura + margem
+            track.style.width = `${totalWidth}px`;
+
+            let position = 0;
+            const speed = 3; // Velocidade do carrossel
+
+            function animate() {
+                position -= speed;
+                if (Math.abs(position) >= items[0].offsetWidth + 60) {
+                    // Reposiciona o primeiro item no final
+                    const firstItem = items.shift();
+                    position += firstItem.offsetWidth + 60;
+                    track.appendChild(firstItem);
+                    items.push(firstItem);
+                }
+                track.style.transform = `translateX(${position}px)`;
+                requestAnimationFrame(animate);
+            }
+
+            animate();
+        }
+
+        window.onload = createInfiniteLoop;
+    </script>
+</body>
+</html>
